@@ -10,13 +10,10 @@ import typing
 __author__ = "¶¡rañha"
 
 NOQA_RE = re.compile(r"# noqa", re.IGNORECASE)
-rblog = pathlib.Path(__file__).parent.joinpath("..", "..").resolve().absolute()
+cooper = pathlib.Path(__file__).parent.joinpath("..", "..").resolve().absolute()
 
 source_paths = [
-    rblog.joinpath("base"),
-    rblog.joinpath("libs"),
-    rblog.joinpath("common"),
-    rblog.joinpath("brunch"),
+    cooper.joinpath("base"),
 ]
 
 
