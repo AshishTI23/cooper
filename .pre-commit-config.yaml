@@ -18,15 +18,8 @@ repos:
         args: [--fix=lf]
 -   repo: local
     hooks:
-#     -   id: django
-#         name: Django project checks
-#         entry: python base/scripts/django_project_checks.py
-#         pass_filenames: false
-#         language: system
-#         files: (requirements\.txt|\.py)$
-#         exclude: (scripts/.*\.py|tests/.*)$
     -   id: cyclic_imports
-        name: Check cyclic imports
+        name: Check Cyclic Imports
         entry: python base/scripts/check_cyclic_imports.py
         language: system
         files: \.py$

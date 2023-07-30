@@ -7,14 +7,10 @@ import sys
 import tokenize
 import typing
 
-__author__ = "¶¡rañha"
-
 NOQA_RE = re.compile(r"# noqa", re.IGNORECASE)
 cooper = pathlib.Path(__file__).parent.joinpath("..", "..").resolve().absolute()
 
-source_paths = [
-    cooper.joinpath("base"),
-]
+source_paths = [cooper.joinpath("base"), cooper.joinpath("users")]
 
 
 class TopLevelProjImportVisitor(ast.NodeVisitor):
