@@ -17,7 +17,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         ("last name"), max_length=50, blank=True, db_index=True
     )
     email = models.EmailField(("email"), unique=True)
-    phone = models.CharField(("phone"), max_length=12, blank=True, db_index=True, unique=True)
+    phone = models.CharField(
+        ("phone"), max_length=12, blank=True, db_index=True, unique=True
+    )
     otp = models.CharField(max_length=6, null=True, blank=True)
     is_verified = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
