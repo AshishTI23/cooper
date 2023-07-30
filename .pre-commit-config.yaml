@@ -1,0 +1,33 @@
+exclude: 'venv-update'
+repos:
+-   repo: https://github.com/ambv/black
+    rev: 22.3.0
+    hooks:
+    -   id: black
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: trailing-whitespace
+        exclude: \.(css|ts|tsx|bck|csv)$
+    -   id: check-merge-conflict
+    -   id: check-json
+    -   id: debug-statements
+    -   id: check-added-large-files
+        args: [--maxkb=500]
+    -   id: mixed-line-ending
+        args: [--fix=lf]
+# -   repo: local
+#     hooks:
+#     -   id: django
+#         name: Django project checks
+#         entry: python base/scripts/django_project_checks.py
+#         pass_filenames: false
+#         language: system
+#         files: (requirements\.txt|\.py)$
+#         exclude: (scripts/.*\.py|tests/.*)$
+#     -   id: cyclic_imports
+#         name: Check cyclic imports
+#         entry: python base/scripts/check_cyclic_imports.py
+#         language: system
+#         files: \.py$
+#         pass_filenames: false
