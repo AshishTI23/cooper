@@ -10,7 +10,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(
         ("first name"), max_length=50, blank=True, db_index=True
     )
-
     middle_name = models.CharField(
         ("middle name"), max_length=50, blank=True, db_index=True
     )
