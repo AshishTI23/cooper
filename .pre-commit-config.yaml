@@ -20,7 +20,7 @@ repos:
     hooks:
     -   id: cyclic_imports
         name: Check Cyclic Imports
-        entry: python base/scripts/check_cyclic_imports.py
+        entry: python3 base/scripts/check_cyclic_imports.py
         language: system
         files: \.py$
         pass_filenames: false
