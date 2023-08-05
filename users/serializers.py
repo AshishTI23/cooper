@@ -14,3 +14,8 @@ class GenerateOTPSerializer(serializers.Serializer):
         ):
             raise serializers.ValidationError({"phone": "Phone must be valid"})
         return attrs
+
+
+class LoginSerializer(serializers.Serializer):
+    phone = serializers.CharField(required=True)
+    otp = serializers.IntegerField(min_value=1000, max_value=9999)

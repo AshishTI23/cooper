@@ -40,7 +40,7 @@ class LoginAPIView(APIView):
                 request, request.data.get("phone"), request.data.get("otp")
             )
             if otp_auth.validate_otp():
-                data = otp_auth.login()
-                return SuccessResponse(data)
+                token = otp_auth.login()
+                return SuccessResponse(token)
             return ErrorResponse("Invalid OTP!")
         return ErrorResponse(serializer.errors)

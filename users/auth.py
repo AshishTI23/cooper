@@ -1,17 +1,7 @@
 from django.core.cache import cache
 from users.models import User
 from django.contrib.auth import authenticate, login
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
-
-from rest_framework_jwt.settings import api_settings
-
-jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
-jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
-jwt_decode_handler = api_settings.JWT_DECODE_HANDLER
-jwt_get_username_from_payload = api_settings.JWT_PAYLOAD_GET_USERNAME_HANDLER
+from base.authentication import JWTAuthentication
 
 
 class OTPAuthentication:
@@ -24,8 +14,7 @@ class OTPAuthentication:
         self.user = User.objects.get(phone=self.phone)
         if self.user.is_active:
             login(self.request, self.user)
-            payload = jwt_payload_handler(self.user)
-            token = jwt_encode_handler(payload)
+            token = JWTAuthentication.create_jwt(self.user)
             return token
 
     def logout(self):
