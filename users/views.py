@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from base.sms_helper import OTP, TwilioSMS, get_sms_body
 from base.constants import COUNTRY_CODE
+from base.exception import FailedToSendMessage
 from users.serializers import GenerateOTPSerializer
 
 # Create your views here.
@@ -20,5 +21,5 @@ class GenerateOTPAPIView(APIView):
                     + request.data.get("phone"),
                 ).send()
             except:
-                raise
+                pass
         return Response("Test API Response")

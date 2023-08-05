@@ -33,6 +33,4 @@ class OTP(object):
 def get_sms_body(sms_type, otp=None):
     match sms_type:
         case "otp":
-            return (
-                f"OTP to login in cooper system is: {otp}" f"Do not share with anyone"
-            )
+            return f"OTP to login in cooper system is: {otp} Do not share with anyone"
