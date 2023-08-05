@@ -16,9 +16,7 @@ class JWTAuthentication(authentication.BaseAuthentication):
         if jwt_token is None:
             return None
 
-        jwt_token = JWTAuthentication.get_the_token_from_header(
-            jwt_token
-        )  # clean the token
+        jwt_token = JWTAuthentication.clean_jwt_token(jwt_token)
 
         # Decode the JWT and verify its signature
         try:
@@ -40,7 +38,7 @@ class JWTAuthentication(authentication.BaseAuthentication):
             if user is None:
                 raise AuthenticationFailed("User not found")
 
-        # Return the user and token payload
+        # Return the user and JWT token
         return user, payload
 
     def authenticate_header(self, request):
@@ -62,6 +60,6 @@ class JWTAuthentication(authentication.BaseAuthentication):
         return jwt_token
 
     @classmethod
-    def get_the_token_from_header(cls, token):
+    def clean_jwt_token(cls, token):
         token = token.replace("Bearer", "").replace(" ", "")  # clean the token
         return token

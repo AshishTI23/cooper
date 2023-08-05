@@ -161,10 +161,10 @@ JWT_AUTH_RETURN_EXPIRATION = True
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(
-        days=env("JWT_ACCESS_TOKEN_LIFETIME", default=60)
+        days=env("JWT_ACCESS_TOKEN_LIFETIME", default=30)
     ),
     "REFRESH_TOKEN_LIFETIME": timedelta(
-        days=env("JWT_REFRESH_TOKEN_LIFETIME", default=360)
+        days=env("JWT_REFRESH_TOKEN_LIFETIME", default=60)
     ),
     # not used for now
     "ROTATE_REFRESH_TOKENS": True,
