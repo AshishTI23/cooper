@@ -13,9 +13,12 @@ class GenerateOTPAPIView(APIView):
         serializer = GenerateOTPSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             otp = OTP(request.data.get("phone")).generate()
-            TwilioSMS(
-                get_sms_body("otp", otp),
-                COUNTRY_CODE.get(request.data.get("country"))
-                + request.data.get("phone"),
-            ).send()
+            try:
+                TwilioSMS(
+                    get_sms_body("otp", otp),
+                    COUNTRY_CODE.get(request.data.get("country"))
+                    + request.data.get("phone"),
+                ).send()
+            except:
+                raise
         return Response("Test API Response")
