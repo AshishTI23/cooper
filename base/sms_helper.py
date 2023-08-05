@@ -26,7 +26,7 @@ class OTP(object):
 
     def generate(self):
         otp = random.randint(1000, 9999)
-        cache.set(self.phone, otp, timeout=1000)
+        cache.set(self.phone, otp, timeout=10000000000000)
         return otp
 
 
