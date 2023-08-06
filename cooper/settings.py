@@ -167,9 +167,9 @@ SIMPLE_JWT = {
         days=env("JWT_REFRESH_TOKEN_LIFETIME", default=60)
     ),
     # not used for now
-    "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": True,
-    "UPDATE_LAST_LOGIN": True,
+    # "ROTATE_REFRESH_TOKENS": True,
+    # "BLACKLIST_AFTER_ROTATION": True,
+    # "UPDATE_LAST_LOGIN": True,
 }
 
 APPEND_SLASH = False
