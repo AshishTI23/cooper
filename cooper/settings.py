@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+from celery.schedules import crontab
 
 
 import environ
@@ -173,3 +174,20 @@ SIMPLE_JWT = {
 }
 
 APPEND_SLASH = False
+
+# Celery Configuration Options
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+
+CELERY_TIMEZONE = "Asia/Kolkata"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+CELERY_BEAT_ENABLED = True
+CELERY_BEAT_SCHEDULE = {
+    "sample_task": {
+        "task": "users.tasks.add",
+        "schedule": crontab(minute="*/1"),
+        "args": (3, 6),
+    },
+}
