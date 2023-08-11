@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from users.manager import UserManager
+from django.contrib.auth import authenticate
 
 
 # Create your models here.
@@ -20,7 +21,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(
         ("phone"), max_length=12, blank=True, db_index=True, unique=True
     )
-    otp = models.CharField(max_length=6, null=True, blank=True)
+    country = models.CharField(max_length=2, null=True, blank=True)
     is_verified = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
