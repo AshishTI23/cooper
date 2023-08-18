@@ -16,6 +16,8 @@ repos:
         args: [--maxkb=500]
     -   id: mixed-line-ending
         args: [--fix=lf]
+    -   id: check-yaml
+    -   id: double-quote-string-fixer
 -   repo: local
     hooks:
     -   id: cyclic_imports
