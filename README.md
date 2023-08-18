@@ -1,5 +1,5 @@
 # cooper
-1. pre-commit setup:
-     pip install pre-commit
-     pre-commit install
-   create a .pre-commit-config.yaml file at manage.py level
+Pre-commit setup
+1. pip install pre-commit
+2. pre-commit install
+3. create a .pre-commit-config.yaml file at manage.py level
