@@ -19,7 +19,7 @@ repos:
 -   repo: local
     hooks:
     -   id: cyclic_imports
-        name: Check Cyclic Imports
+        name: check cyclic imports
         entry: python base/scripts/check_cyclic_imports.py
         language: system
         files: \.py$

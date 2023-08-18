@@ -5,7 +5,6 @@ from base.constants import COUNTRY_CODE
 from base.http import SuccessResponse, ErrorResponse
 from users.serializers import GenerateOTPSerializer, LoginSerializer
 from users.auth import OTPAuthentication
-from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 # Create your views here.
