@@ -1,10 +1,15 @@
-from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
-from base.sms_helper import OTP, TwilioSMS, get_sms_body
+from rest_framework.views import APIView
+
 from base.constants import COUNTRY_CODE
-from base.http import SuccessResponse, ErrorResponse
-from users.serializers import GenerateOTPSerializer, LoginSerializer
+from base.http import ErrorResponse
+from base.http import SuccessResponse
+from base.sms_helper import get_sms_body
+from base.sms_helper import OTP
+from base.sms_helper import TwilioSMS
 from users.auth import OTPAuthentication
+from users.serializers import GenerateOTPSerializer
+from users.serializers import LoginSerializer
 
 
 # Create your views here.
@@ -43,3 +48,7 @@ class LoginAPIView(APIView):
                 return SuccessResponse(token)
             return ErrorResponse("Invalid OTP!")
         return ErrorResponse(serializer.errors)
+
+
+def foo():
+    pass

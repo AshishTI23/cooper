@@ -1,5 +1,5 @@
-from rest_framework import serializers
 import phonenumbers
+from rest_framework import serializers
 
 COUNTRY_CHOICE = ("IN",)
 

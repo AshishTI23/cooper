@@ -1,9 +1,8 @@
-from twilio.rest import Client
 import random
-from django.core.cache import cache
-
 
 import environ
+from django.core.cache import cache
+from twilio.rest import Client
 
 env = environ.Env()
 

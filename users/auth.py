@@ -1,7 +1,9 @@
+from django.contrib.auth import authenticate
+from django.contrib.auth import login
 from django.core.cache import cache
-from users.models import User
-from django.contrib.auth import authenticate, login
+
 from base.authentication import JWTAuthentication
+from users.models import User
 
 
 class OTPAuthentication:

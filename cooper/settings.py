@@ -9,13 +9,11 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
-from pathlib import Path
 from datetime import timedelta
-from celery.schedules import crontab
-
+from pathlib import Path
 
 import environ
+from celery.schedules import crontab
 
 # Initialise environment variables
 env = environ.Env()
