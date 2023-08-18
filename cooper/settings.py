@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from datetime import timedelta
 from pathlib import Path
+from typing import List
 
 import environ
 from celery.schedules import crontab
@@ -32,7 +33,7 @@ SECRET_KEY = "django-insecure-ix)1%@1=zu(n^brx+ie(a(r*f+22g4%!&lqo8d6rqyrb$u*w@5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: List[str] = []
 
 
 # Application definition
