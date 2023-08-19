@@ -48,7 +48,3 @@ class LoginAPIView(APIView):
                 return SuccessResponse(token)
             return ErrorResponse("Invalid OTP!")
         return ErrorResponse(serializer.errors)
-
-
-def foo():
-    pass
